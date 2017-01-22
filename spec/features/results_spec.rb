@@ -14,16 +14,14 @@ feature "Results" do
     sign_in_choose_move
     expect(page).to have_content "Computer move: #{ @computer_move }"
   end
-
-  scenario "displays winner when computer wins" do
+  scenario "declares winner" do
     sign_in_choose_move
-    allow(computer).to receive(:move).and_return(@computer_move)
-    expect(page).to have_content "And the winner is: Player!"
+    allow(computer).to receive(:move).and_return("Paper")
+    expect(page).to have_content "And the winner is: Computer!"
   end
-  #
-  # scenario "displays winner when player wins" do
-  #   sign_in_choose_move
-  #   allow(computer).to receive(:move).and_return("Scissors")
-  #   expect(page).to have_content "And the winner is: Player!"
-  # end
+  scenario "declares draw" do
+    sign_in_choose_move
+    allow(computer).to receive(:move).and_return("Rock")
+    expect(page).to have_content "It's a draw!"
+  end
 end

@@ -1,0 +1,7 @@
+<h3><div>You have selected <%= @player_move %>.</div>
+<div>Computer move: <%= @computer_move %>.</div></h3>
+<% if @winner == "Draw" %>
+<h2>It's a draw!</h2>
+<% else %>
+<h2>And the winner is: <%= @winner %>!</h2>
+<% end %>

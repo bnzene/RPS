@@ -2,6 +2,10 @@
 source "https://rubygems.org"
 ruby '2.3.3'
 # gem "rails"
-gem "sinatra"
-gem 'rspec-sinatra'
+gem 'rake'
+gem 'sinatra'
+gem 'rspec'
+gem 'rubocop'
 gem 'capybara'
+gem 'coveralls', require: false
+gem 'byebug'

@@ -15,13 +15,14 @@ feature "Results" do
     expect(page).to have_content "Computer move: #{ @computer_move }"
   end
   scenario "declares winner" do
+    allow_any_instance_of(Computer).to receive(:move).and_return("Paper")
     sign_in_choose_move
-    allow(computer).to receive(:move).and_return("Paper")
     expect(page).to have_content "And the winner is: Computer!"
   end
   scenario "declares draw" do
+    allow_any_instance_of(Computer).to receive(:move).and_return("Rock")
     sign_in_choose_move
-    allow(computer).to receive(:move).and_return("Rock")
+    p computer.move
     expect(page).to have_content "It's a draw!"
   end
 end
